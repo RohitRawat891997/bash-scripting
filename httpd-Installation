@@ -1,0 +1,8 @@
+#!/bin/bash
+yum -y install httpd
+echo hi > /var/www/html/index.html
+systemctl restart  httpd
+systemctl enable  httpd
+firewall-cmd  --permanent --zone=public --add=port=80/tcp
+firewall-cmd  --reload
+echo "httpd installed successfully!"
